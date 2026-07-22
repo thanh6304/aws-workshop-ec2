@@ -9,6 +9,8 @@ pre: " <b> 5. </b> "
 
 # Deploying an AI Supply Chain Control Tower on AWS
 
+### Access Link: http://52.202.59.216/login
+
 #### Overview
 
 **AI Supply Chain Control Tower** is a cloud-native platform designed to help organizations monitor, analyze, and optimize supply chain operations using AWS managed services and Artificial Intelligence. The system provides centralized data management, real-time monitoring, demand forecasting, supplier risk analysis, and intelligent recommendations for decision making.

@@ -9,6 +9,8 @@ pre: " <b> 5. </b> "
 
 # Triển khai AI Supply Chain Control Tower trên AWS
 
+### Link truy cập: http://52.202.59.216/login
+
 #### Tổng quan
 
 **AI Supply Chain Control Tower** là hệ thống hỗ trợ doanh nghiệp quản lý và giám sát chuỗi cung ứng bằng cách kết hợp các dịch vụ AWS Cloud và trí tuệ nhân tạo (AI). Hệ thống cho phép quản lý dữ liệu tập trung, xử lý nghiệp vụ theo mô hình serverless, phân tích dữ liệu trên Data Lake và đưa ra các dự báo, đánh giá rủi ro cũng như khuyến nghị thông minh.
