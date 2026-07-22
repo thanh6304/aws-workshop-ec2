@@ -5,7 +5,6 @@ weight: 4
 chapter: false
 ---
 
-# 5.5.4 Tích hợp Amazon Bedrock
 
 ## Tổng quan
 

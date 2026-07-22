@@ -5,7 +5,6 @@ weight: 5
 chapter: false
 ---
 
-# 5.6.5 Cập nhật AWS Glue Data Catalog
 
 ## Tổng quan
 

@@ -5,7 +5,7 @@ weight: 5
 chapter: false
 ---
 
-# 5.7.5 Bảo vệ thông tin bí mật với AWS Secrets Manager
+
 
 ## Tổng quan
 

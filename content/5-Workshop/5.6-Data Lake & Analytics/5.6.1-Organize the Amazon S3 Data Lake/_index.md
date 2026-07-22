@@ -5,7 +5,6 @@ weight: 1
 chapter: false
 ---
 
-# 5.6.1 Organize the Amazon S3 Data Lake
 
 ## Overview
 

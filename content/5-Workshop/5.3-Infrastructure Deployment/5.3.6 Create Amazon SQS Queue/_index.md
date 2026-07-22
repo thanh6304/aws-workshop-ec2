@@ -5,7 +5,6 @@ weight: 6
 chapter: false
 ---
 
-# 5.3.6 Create Amazon SQS Queue
 
 ## Overview
 

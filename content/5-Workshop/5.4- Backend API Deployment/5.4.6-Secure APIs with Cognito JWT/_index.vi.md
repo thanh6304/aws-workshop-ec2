@@ -5,7 +5,6 @@ weight: 6
 chapter: false
 ---
 
-# 5.4.6 Bảo vệ API bằng Amazon Cognito JWT
 
 ## Tổng quan
 

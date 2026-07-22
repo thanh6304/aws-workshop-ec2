@@ -5,7 +5,6 @@ weight: 5
 chapter: false
 ---
 
-# 5.5.5 Xử lý thông điệp từ Amazon SQS
 
 ## Tổng quan
 

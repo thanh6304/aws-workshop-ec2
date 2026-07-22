@@ -5,7 +5,6 @@ weight: 2
 chapter: false
 ---
 
-# 5.7.2 Configure CloudWatch Alarms
 
 ## Overview
 

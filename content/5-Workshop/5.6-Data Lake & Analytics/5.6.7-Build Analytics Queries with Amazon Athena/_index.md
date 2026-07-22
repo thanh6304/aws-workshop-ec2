@@ -5,7 +5,6 @@ weight: 7
 chapter: false
 ---
 
-# 5.6.7 Build Analytics Queries with Amazon Athena
 
 ## Overview
 

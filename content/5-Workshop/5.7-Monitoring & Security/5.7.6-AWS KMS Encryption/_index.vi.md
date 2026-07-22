@@ -5,7 +5,7 @@ weight: 6
 chapter: false
 ---
 
-# 5.7.6 Mã hóa dữ liệu bằng AWS Key Management Service (AWS KMS)
+
 
 ## Tổng quan
 

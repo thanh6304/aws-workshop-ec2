@@ -5,7 +5,6 @@ weight: 1
 chapter: false
 ---
 
-# 5.3.1 Create Amazon VPC
 
 ## Overview
 

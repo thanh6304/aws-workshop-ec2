@@ -5,7 +5,6 @@ weight: 3
 chapter: false
 ---
 
-# 5.6.3 Convert Data to Apache Parquet
 
 ## Overview
 

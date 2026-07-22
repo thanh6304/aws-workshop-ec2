@@ -5,7 +5,6 @@ weight: 1
 chapter: false
 ---
 
-# 5.4.1 Create Amazon Cognito User Pool
 
 ## Overview
 

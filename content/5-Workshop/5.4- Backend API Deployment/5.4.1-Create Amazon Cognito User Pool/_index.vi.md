@@ -5,7 +5,6 @@ weight: 1
 chapter: false
 ---
 
-# 5.4.1 Tạo Amazon Cognito User Pool
 
 ## Tổng quan
 

@@ -5,7 +5,6 @@ weight: 3
 chapter: false
 ---
 
-# 5.4.3 Deploy Lambda Backend API
 
 ## Overview
 

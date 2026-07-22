@@ -5,7 +5,6 @@ weight: 7
 chapter: false
 ---
 
-# 5.3.7 Create IAM Roles for AWS Lambda
 
 ## Overview
 

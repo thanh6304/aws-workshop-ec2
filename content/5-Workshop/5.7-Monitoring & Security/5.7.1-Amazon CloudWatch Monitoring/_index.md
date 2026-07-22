@@ -5,7 +5,6 @@ weight: 1
 chapter: false
 ---
 
-# 5.7.1 Monitor the System with Amazon CloudWatch
 
 ## Overview
 

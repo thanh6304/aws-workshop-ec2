@@ -5,7 +5,6 @@ weight: 3
 chapter: false
 ---
 
-# 5.4.3 Triển khai Lambda Backend API
 
 ## Tổng quan
 

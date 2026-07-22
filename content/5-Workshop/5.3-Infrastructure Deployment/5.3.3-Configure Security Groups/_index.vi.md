@@ -5,7 +5,6 @@ weight: 3
 chapter: false
 ---
 
-# 5.3.3 Cấu hình Security Groups
 
 ## Tổng quan
 

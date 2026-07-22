@@ -5,7 +5,6 @@ weight: 4
 chapter: false
 ---
 
-# 5.7.4 Bảo mật quyền truy cập với AWS Identity and Access Management (IAM)
 
 ## Tổng quan
 

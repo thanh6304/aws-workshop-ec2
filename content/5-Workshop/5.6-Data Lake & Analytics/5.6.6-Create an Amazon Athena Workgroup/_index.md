@@ -5,7 +5,6 @@ weight: 6
 chapter: false
 ---
 
-# 5.6.6 Create an Amazon Athena Workgroup
 
 ## Overview
 

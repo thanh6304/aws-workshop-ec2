@@ -5,7 +5,6 @@ weight: 2
 chapter: false
 ---
 
-# 5.5.2 Truy vấn dữ liệu bằng Amazon Athena
 
 ## Tổng quan
 

@@ -5,7 +5,6 @@ weight: 4
 chapter: false
 ---
 
-# 5.4.4 Cấu hình Amazon API Gateway
 
 ## Tổng quan
 

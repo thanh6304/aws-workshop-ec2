@@ -5,7 +5,7 @@ weight: 1
 chapter: false
 ---
 
-# 5.8.1 Test User Authentication with Amazon Cognito
+
 
 ## Overview
 

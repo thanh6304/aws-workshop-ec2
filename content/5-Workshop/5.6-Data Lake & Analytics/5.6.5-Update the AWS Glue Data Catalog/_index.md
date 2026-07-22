@@ -5,7 +5,6 @@ weight: 5
 chapter: false
 ---
 
-# 5.6.5 Update the AWS Glue Data Catalog
 
 ## Overview
 

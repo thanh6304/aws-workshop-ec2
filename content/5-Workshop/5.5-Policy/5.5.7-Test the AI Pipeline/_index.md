@@ -5,7 +5,6 @@ weight: 7
 chapter: false
 ---
 
-# 5.5.7 Test the AI Pipeline
 
 ## Overview
 

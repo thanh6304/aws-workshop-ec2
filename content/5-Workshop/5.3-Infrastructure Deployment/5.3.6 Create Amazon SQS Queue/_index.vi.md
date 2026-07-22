@@ -5,7 +5,6 @@ weight: 6
 chapter: false
 ---
 
-# 5.3.6 Tạo Amazon SQS Queue
 
 ## Tổng quan
 

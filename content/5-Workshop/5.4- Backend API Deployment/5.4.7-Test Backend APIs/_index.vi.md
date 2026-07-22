@@ -5,7 +5,6 @@ weight: 7
 chapter: false
 ---
 
-# 5.4.7 Kiểm thử Backend APIs
 
 ## Tổng quan
 

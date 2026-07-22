@@ -5,7 +5,6 @@ weight: 3
 chapter: false
 ---
 
-# 5.5.3 Triển khai AI Worker Lambda
 
 ## Tổng quan
 

@@ -5,7 +5,6 @@ weight: 4
 chapter: false
 ---
 
-# 5.3.4 Triển khai Amazon RDS PostgreSQL
 
 ## Tổng quan
 

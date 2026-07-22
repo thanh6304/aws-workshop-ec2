@@ -5,8 +5,6 @@ weight: 7
 chapter: false
 ---
 
-# 5.5.7 Kiểm thử AI Pipeline
-
 ## Tổng quan
 
 Sau khi hoàn thành việc triển khai AWS Glue Data Catalog, Amazon Athena, AI Worker Lambda, Amazon SQS và Amazon Bedrock, bước cuối cùng là kiểm thử toàn bộ AI Pipeline theo luồng end-to-end.

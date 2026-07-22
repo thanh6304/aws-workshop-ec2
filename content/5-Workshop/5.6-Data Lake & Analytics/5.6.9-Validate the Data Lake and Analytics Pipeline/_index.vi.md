@@ -5,7 +5,6 @@ weight: 9
 chapter: false
 ---
 
-# 5.6.9 Kiểm tra và xác thực hệ thống phân tích dữ liệu
 
 ## Tổng quan
 

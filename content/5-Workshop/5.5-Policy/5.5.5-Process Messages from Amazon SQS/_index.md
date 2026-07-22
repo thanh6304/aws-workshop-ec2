@@ -5,7 +5,6 @@ weight: 5
 chapter: false
 ---
 
-# 5.5.5 Process Messages from Amazon SQS
 
 ## Overview
 

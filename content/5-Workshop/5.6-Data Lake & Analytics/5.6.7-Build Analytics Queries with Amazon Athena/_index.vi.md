@@ -5,7 +5,6 @@ weight: 7
 chapter: false
 ---
 
-# 5.6.7 Xây dựng các truy vấn phân tích với Amazon Athena
 
 ## Tổng quan
 

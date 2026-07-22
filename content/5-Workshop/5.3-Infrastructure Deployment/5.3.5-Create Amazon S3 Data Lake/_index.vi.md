@@ -5,7 +5,6 @@ weight: 5
 chapter: false
 ---
 
-# 5.3.5 Tạo Amazon S3 Data Lake
 
 ## Tổng quan
 

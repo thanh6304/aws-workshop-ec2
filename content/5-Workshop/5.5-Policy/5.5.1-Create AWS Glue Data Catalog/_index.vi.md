@@ -5,7 +5,6 @@ weight: 1
 chapter: false
 ---
 
-# 5.5.1 Tạo AWS Glue Data Catalog
 
 ## Tổng quan
 

@@ -5,7 +5,6 @@ weight: 8
 chapter: false
 ---
 
-# 5.6.8 Create Dashboard Views
 
 ## Overview
 

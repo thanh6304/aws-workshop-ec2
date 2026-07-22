@@ -5,7 +5,6 @@ weight: 2
 chapter: false
 ---
 
-# 5.4.2 Configure AWS Secrets Manager
 
 ## Overview
 

@@ -5,7 +5,6 @@ weight: 3
 chapter: false
 ---
 
-# 5.3.3 Configure Security Groups
 
 ## Overview
 

@@ -5,7 +5,6 @@ weight: 5
 chapter: false
 ---
 
-# 5.4.5 Kết nối Lambda với Amazon RDS PostgreSQL
 
 ## Tổng quan
 

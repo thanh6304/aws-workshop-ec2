@@ -5,7 +5,7 @@ weight: 7
 chapter: false
 ---
 
-# 5.7.7 Kiểm toán tài nguyên AWS với AWS CloudTrail
+
 
 ## Tổng quan
 

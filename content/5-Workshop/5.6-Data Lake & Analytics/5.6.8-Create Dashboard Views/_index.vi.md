@@ -5,7 +5,6 @@ weight: 8
 chapter: false
 ---
 
-# 5.6.8 Tạo Dashboard Views
 
 ## Tổng quan
 

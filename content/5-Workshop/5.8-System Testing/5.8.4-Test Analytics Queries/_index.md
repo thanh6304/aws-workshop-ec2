@@ -5,7 +5,7 @@ weight: 4
 chapter: false
 ---
 
-# 5.8.4 Test Analytics Queries with Amazon Athena
+
 
 ## Overview
 

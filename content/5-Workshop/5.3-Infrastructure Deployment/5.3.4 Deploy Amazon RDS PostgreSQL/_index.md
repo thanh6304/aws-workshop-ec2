@@ -5,7 +5,6 @@ weight: 4
 chapter: false
 ---
 
-# 5.3.4 Deploy Amazon RDS PostgreSQL
 
 ## Overview
 

@@ -5,7 +5,7 @@ weight: 1
 chapter: false
 ---
 
-# 5.8.1 Kiểm thử xác thực người dùng với Amazon Cognito
+
 
 ## Tổng quan
 

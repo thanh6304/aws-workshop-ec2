@@ -5,7 +5,6 @@ weight: 2
 chapter: false
 ---
 
-# 5.3.2 Tạo Public và Private Subnets
 
 ## Tổng quan
 

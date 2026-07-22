@@ -5,7 +5,6 @@ weight: 6
 chapter: false
 ---
 
-# 5.5.6 Lưu kết quả phân tích AI
 
 ## Tổng quan
 

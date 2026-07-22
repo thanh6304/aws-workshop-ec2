@@ -5,7 +5,6 @@ weight: 3
 chapter: false
 ---
 
-# 5.7.3 Configure Amazon SNS Notifications
 
 ## Overview
 

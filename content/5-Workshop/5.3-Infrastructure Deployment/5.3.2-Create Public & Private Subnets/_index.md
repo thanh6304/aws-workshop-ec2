@@ -5,7 +5,6 @@ weight: 2
 chapter: false
 ---
 
-# 5.3.2 Create Public and Private Subnets
 
 ## Overview
 

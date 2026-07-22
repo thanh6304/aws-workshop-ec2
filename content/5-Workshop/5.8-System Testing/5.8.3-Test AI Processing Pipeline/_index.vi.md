@@ -5,7 +5,7 @@ weight: 3
 chapter: false
 ---
 
-# 5.8.3 Kiểm thử AI Processing Pipeline
+
 
 ## Tổng quan
 

@@ -5,7 +5,6 @@ weight: 2
 chapter: false
 ---
 
-# 5.5.2 Query Data with Amazon Athena
 
 ## Overview
 

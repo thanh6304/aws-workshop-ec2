@@ -5,7 +5,6 @@ weight: 1
 chapter: false
 ---
 
-# 5.3.1 Tạo Amazon VPC
 
 ## Tổng quan
 

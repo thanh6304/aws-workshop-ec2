@@ -5,7 +5,6 @@ weight: 2
 chapter: false
 ---
 
-# 5.4.2 Cấu hình AWS Secrets Manager
 
 ## Tổng quan
 

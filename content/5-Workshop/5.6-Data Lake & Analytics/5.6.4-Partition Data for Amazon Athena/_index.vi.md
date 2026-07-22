@@ -5,7 +5,6 @@ weight: 4
 chapter: false
 ---
 
-# 5.6.4 Phân vùng dữ liệu cho Amazon Athena
 
 ## Tổng quan
 

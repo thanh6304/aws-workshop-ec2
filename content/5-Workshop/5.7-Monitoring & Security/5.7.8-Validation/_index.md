@@ -5,7 +5,7 @@ weight: 8
 chapter: false
 ---
 
-# 5.7.8 Validate Monitoring and Security Configuration
+
 
 ## Overview
 

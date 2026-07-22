@@ -5,7 +5,7 @@ weight: 4
 chapter: false
 ---
 
-# 5.8.4 Kiểm thử truy vấn phân tích với Amazon Athena
+
 
 ## Tổng quan
 

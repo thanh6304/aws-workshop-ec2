@@ -5,7 +5,6 @@ weight: 6
 chapter: false
 ---
 
-# 5.4.6 Secure APIs with Amazon Cognito JWT
 
 ## Overview
 
