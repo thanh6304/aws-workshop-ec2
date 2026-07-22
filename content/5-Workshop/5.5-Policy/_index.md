@@ -1,99 +1,73 @@
 ---
-title : "VPC Endpoint Policies"
-date : 2024-01-01
-weight : 5
-chapter : false
-pre : " <b> 5.5. </b> "
+title: "AI Pipeline Deployment"
+date: 2024-01-01
+weight: 5
+chapter: false
+pre: "<b>5.5. </b>"
 ---
 
-When you create an interface or gateway endpoint, you can attach an endpoint policy to it that controls access to the service to which you are connecting. A VPC endpoint policy is an IAM resource policy that you attach to an endpoint. If you do not attach a policy when you create an endpoint, AWS attaches a default policy for you that allows full access to the service through the endpoint.
+## Overview
 
-You can create a policy that restricts access to specific S3 buckets only. This is useful if you only want certain S3 Buckets to be accessible through the endpoint.
+This chapter introduces the AI processing workflow of the AI Supply Chain Control Tower.
 
-In this section you will create a VPC endpoint policy that restricts access to the S3 bucket specified in the VPC endpoint policy.
+The AI pipeline combines asynchronous messaging, serverless computing, data analytics, and generative AI services to process business requests efficiently.
 
-![endpoint diagram](/images/5-Workshop/5.5-Policy/s3-bucket-policy.png)
+The workflow consists of:
 
-#### Connect to an EC2 instance and verify connectivity to S3
+- Backend Lambda publishes requests to Amazon SQS.
+- Lambda Worker consumes queue messages.
+- Amazon Athena queries datasets stored in Amazon S3.
+- Amazon Bedrock generates AI insights.
+- Lambda Worker stores AI results in Amazon RDS PostgreSQL.
 
-1. Start a new AWS Session Manager session on the instance named Test-Gateway-Endpoint. From the session, verify that you can list the contents of the bucket you created in Part 1: Access S3 from VPC:
+---
 
-```
-aws s3 ls s3://\<your-bucket-name\>
-```
-![test](/images/5-Workshop/5.5-Policy/test1.png)
+## Objectives
 
-The bucket contents include the two 1 GB files uploaded in earlier.
+After completing this chapter, you will be able to:
 
-2. Create a new S3 bucket; follow the naming pattern you used in Part 1, but add a '-2' to the name. Leave other fields as default and click create
+- Create an AWS Glue Data Catalog.
+- Query datasets with Amazon Athena.
+- Deploy an AI Worker Lambda.
+- Integrate Amazon Bedrock.
+- Process Amazon SQS messages.
+- Store AI analysis results.
+- Validate the end-to-end AI pipeline.
 
-![create bucket](/images/5-Workshop/5.5-Policy/create-bucket.png)
+---
 
-Successfully create bucket
-
-![Success](/images/5-Workshop/5.5-Policy/create-bucket-success.png)
-
-3. Navigate to: Services > VPC > Endpoints, then select the Gateway VPC endpoint you created earlier. Click the Policy tab. Click Edit policy.
-
-![policy](/images/5-Workshop/5.5-Policy/policy1.png)
-
-The default policy allows access to all S3 Buckets through the VPC endpoint.
-
-4. In Edit Policy console, copy & Paste the following policy, then replace yourbucketname-2 with your 2nd bucket name. This policy will allow access through the VPC endpoint to your new bucket, but not any other bucket in Amazon S3. Click Save to apply the policy.
+## Architecture
 
 ```
-{
-  "Id": "Policy1631305502445",
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "Stmt1631305501021",
-      "Action": "s3:*",
-      "Effect": "Allow",
-      "Resource": [
-      				"arn:aws:s3:::yourbucketname-2",
-       				"arn:aws:s3:::yourbucketname-2/*"
-       ],
-      "Principal": "*"
-    }
-  ]
-}
+Amazon SQS
+      │
+      ▼
+Lambda Worker
+      │
+      ▼
+Amazon Athena
+      │
+      ▼
+Amazon Bedrock
+      │
+      ▼
+Amazon RDS PostgreSQL
 ```
 
-![custom policy](/images/5-Workshop/5.5-Policy/policy2.png)
+---
 
-Successfully customize policy
+## Contents
 
-![success](/static/images/5-Workshop/5.5-Policy/success.png)
+- 5.5.1 Create AWS Glue Data Catalog
+- 5.5.2 Query Data with Amazon Athena
+- 5.5.3 Create AI Worker Lambda
+- 5.5.4 Integrate Amazon Bedrock
+- 5.5.5 Process Messages from Amazon SQS
+- 5.5.6 Store AI Analysis Results
+- 5.5.7 Test the AI Pipeline
 
-5. From your session on the Test-Gateway-Endpoint instance, test access to the S3 bucket you created in Part 1: Access S3 from VPC
-```
-aws s3 ls s3://<yourbucketname>
-```
+---
 
-This command will return an error because access to this bucket is not permitted by your new VPC endpoint policy:
+## Expected Outcome
 
-![error](/static/images/5-Workshop/5.5-Policy/error.png)
-
-6. Return to your home directory on your EC2 instance ` cd~ `
-
-+ Create a file ```fallocate -l 1G test-bucket2.xyz ```
-+ Copy file to 2nd bucket ```aws s3 cp test-bucket2.xyz s3://<your-2nd-bucket-name>```
-
-![success](/static/images/5-Workshop/5.5-Policy/test2.png)
-
-This operation succeeds because it is permitted by the VPC endpoint policy.
-
-![success](/static/images/5-Workshop/5.5-Policy/test2-success.png)
-
-+ Then we test access to the first bucket by copy the file to 1st bucket `aws s3 cp test-bucket2.xyz s3://<your-1st-bucket-name>`
-
-![fail](/static/images/5-Workshop/5.5-Policy/test2-fail.png)
-
-This command will return an error because access to this bucket is not permitted by your new VPC endpoint policy.
-
-#### Part 3 Summary:
-
-In this section, you created a VPC endpoint policy for Amazon S3, and used the AWS CLI to test the policy. AWS CLI actions targeted to your original S3 bucket failed because you applied a policy that only allowed access to the second bucket you created. AWS CLI actions targeted for your second bucket succeeded because the policy allowed them. These policies can be useful in situations where you need to control access to resources through VPC endpoints.
-
-
+After completing this chapter, the AI processing workflow will automatically analyze business data and generate intelligent recommendations using Amazon Bedrock.

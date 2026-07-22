@@ -1,31 +1,49 @@
 ---
 title: "Workshop"
-date: 2024-01-01
+date: 2026-06-07
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Secure Hybrid Access to S3 using VPC Endpoints
+
+# Deploying an AI Supply Chain Control Tower on AWS
 
 #### Overview
 
-**AWS PrivateLink** provides private connectivity to AWS services from VPCs and your on-premises networks, without exposing your traffic to the Public Internet.
+**AI Supply Chain Control Tower** is a cloud-native platform designed to help organizations monitor, analyze, and optimize supply chain operations using AWS managed services and Artificial Intelligence. The system provides centralized data management, real-time monitoring, demand forecasting, supplier risk analysis, and intelligent recommendations for decision making.
 
-In this lab, you will learn how to create, configure, and test VPC endpoints that enable your workloads to reach AWS services without traversing the Public Internet.
+In this workshop, you will learn how to deploy a complete AI-powered Supply Chain Control Tower on AWS using a serverless architecture. The workshop covers infrastructure deployment, backend development, data processing, AI integration, monitoring, and security best practices.
 
-You will create two types of endpoints to access Amazon S3: a Gateway VPC endpoint, and an Interface VPC endpoint. These two types of VPC endpoints offer different benefits depending on if you are accessing Amazon S3 from the cloud or your on-premises location
-+ **Gateway** - Create a gateway endpoint to send traffic to Amazon S3 or DynamoDB using private IP addresses.You route traffic from your VPC to the gateway endpoint using route tables.
-+ **Interface** - Create an interface endpoint to send traffic to endpoint services that use a Network Load Balancer to distribute traffic. Traffic destined for the endpoint service is resolved using DNS.
+The architecture leverages the following AWS services:
+
+- **Amazon Route 53** – Domain Name System (DNS) management.
+- **AWS Amplify** – Hosting and deploying the frontend web application.
+- **Amazon Cognito** – User authentication and authorization.
+- **Amazon API Gateway** – REST API management.
+- **AWS Lambda** – Backend business logic and AI processing.
+- **Amazon RDS for PostgreSQL** – Relational database for transactional data.
+- **Amazon SQS** – Asynchronous message processing.
+- **Amazon S3** – Centralized Data Lake storage.
+- **AWS Glue** – Metadata catalog and ETL services.
+- **Amazon Athena** – Serverless SQL analytics on data stored in Amazon S3.
+- **Amazon Bedrock** – Foundation models for AI-powered forecasting and recommendations.
+- **Amazon CloudWatch** – Monitoring, logging, and metrics collection.
+- **Amazon SNS** – Notification and alert delivery.
+- **AWS IAM** – Identity and access management.
+- **AWS Secrets Manager** – Secure credential management.
+- **AWS KMS** – Data encryption and key management.
+- **AWS CloudTrail** – Auditing and governance.
+- **AWS CloudFormation** – Infrastructure as Code (IaC) deployment.
 
 #### Content
 
-1. [Workshop overview](5.1-Workshop-overview)
-2. [Prerequiste](5.2-Prerequiste/)
-3. [Access S3 from VPC](5.3-S3-vpc/)
-4. [Access S3 from On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (Bonus)](5.5-Policy/)
-6. [Clean up](5.6-Cleanup/)
+1. [Introduction](5.1-Introduction/)
+2. [Environment Preparation](5.2-Prerequisite/)
+3. [Deploy AWS Infrastructure](5.3-Infrastructure/)
+4. [Deploy Backend API](5.4-Backend/)
+5. [Deploy AI Pipeline](5.5-AI-Pipeline/)
+6. [Deploy Data Lake & Analytics](5.6-Data-Lake/)
+7. [Monitoring & Security](5.7-Monitoring-Security/)
+8. [System Testing](5.8-Testing/)
+9. [Resource Cleanup](5.9-Cleanup/)

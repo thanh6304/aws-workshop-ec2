@@ -1,95 +1,77 @@
 ---
-title : "VPC Endpoint Policies"
-date : 2024-01-01
-weight : 5
-chapter : false
-pre : " <b> 5.5 </b> "
+title: "Triển khai AI Pipeline"
+date: 2024-01-01
+weight: 5
+chapter: false
+pre: "<b>5.5. </b>"
 ---
 
-Khi bạn tạo một Interface Endpoint  hoặc cổng, bạn có thể đính kèm một chính sách điểm cuối để kiểm soát quyền truy cập vào dịch vụ mà bạn đang kết nối. Chính sách VPC Endpoint là chính sách tài nguyên IAM mà bạn đính kèm vào điểm cuối. Nếu bạn không đính kèm chính sách khi tạo điểm cuối, thì AWS sẽ đính kèm chính sách mặc định cho bạn để cho phép toàn quyền truy cập vào dịch vụ thông qua điểm cuối.
+## Tổng quan
 
-Bạn có thể tạo chính sách chỉ hạn chế quyền truy cập vào các S3 bucket cụ thể. Điều này hữu ích nếu bạn chỉ muốn một số Bộ chứa S3 nhất định có thể truy cập được thông qua điểm cuối.
+Sau khi hoàn thành Backend API, bước tiếp theo là xây dựng AI Pipeline để tự động phân tích dữ liệu và hỗ trợ ra quyết định trong chuỗi cung ứng.
 
-Trong phần này, bạn sẽ tạo chính sách VPC Endpoint hạn chế quyền truy cập vào S3 bucket được chỉ định trong chính sách VPC Endpoint.
+Trong chương này, hệ thống sẽ sử dụng các dịch vụ AI và phân tích dữ liệu của AWS để xử lý yêu cầu dự báo được gửi từ Backend.
 
-![endpoint diagram](/images/5-Workshop/5.5-Policy/s3-bucket-policy.png)
+Quy trình hoạt động gồm:
 
-#### Kết nối tới EC2 và xác minh kết nối tới S3. 
+- Lambda Backend gửi yêu cầu vào Amazon SQS.
+- Lambda Worker nhận thông điệp từ hàng đợi.
+- Amazon Athena truy vấn dữ liệu từ Amazon S3 Data Lake.
+- Amazon Bedrock phân tích dữ liệu và sinh kết quả AI.
+- Lambda Worker lưu kết quả về Amazon RDS PostgreSQL.
 
-1. Bắt đầu một phiên AWS Session Manager mới trên máy chủ có tên là Test-Gateway-Endpoint. Từ phiên này, xác minh rằng bạn có thể liệt kê nội dung của bucket mà bạn đã tạo trong Phần 1: Truy cập S3 từ VPC.
+Nhờ kiến trúc xử lý bất đồng bộ này, Backend phản hồi nhanh hơn, trong khi các tác vụ AI vẫn được thực hiện một cách hiệu quả và có khả năng mở rộng.
 
-```
-aws s3 ls s3://<your-bucket-name>
-```
-![test](/images/5-Workshop/5.5-Policy/test1.png)
+---
 
-Nội dung của bucket bao gồm hai tệp có dung lượng 1GB đã được tải lên trước đó.
+## Mục tiêu
 
-2. Tạo một bucket S3 mới; tuân thủ mẫu đặt tên mà bạn đã sử dụng trong Phần 1, nhưng thêm '-2' vào tên. Để các trường khác là mặc định và nhấp vào **Create**.
+Sau chương này bạn sẽ:
 
-![create bucket](/images/5-Workshop/5.5-Policy/create-bucket.png)
+- Tạo AWS Glue Data Catalog.
+- Truy vấn dữ liệu bằng Amazon Athena.
+- Triển khai Lambda Worker.
+- Tích hợp Amazon Bedrock.
+- Xử lý thông điệp từ Amazon SQS.
+- Lưu kết quả AI vào PostgreSQL.
+- Kiểm thử toàn bộ AI Pipeline.
 
-3. Tạo bucket thành công.
+---
 
-![Success](/images/5-Workshop/5.5-Policy/create-bucket-success.png)
-
-Policy mặc định cho phép truy cập vào tất cả các S3 Buckets thông qua VPC endpoint.
-
-4. Trong giao diện **Edit Policy**, sao chép và dán theo policy sau, thay thế yourbucketname-2 với tên bucket thứ hai của bạn. Policy này sẽ cho phép truy cập đến bucket mới thông qua VPC endpoint, nhưng không cho phép truy cập đến các bucket còn lại. Chọn **Save** để kích hoạt policy.
-
-
-```
-{
-  "Id": "Policy1631305502445",
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "Stmt1631305501021",
-      "Action": "s3:*",
-      "Effect": "Allow",
-      "Resource": [
-      				"arn:aws:s3:::yourbucketname-2",
-       				"arn:aws:s3:::yourbucketname-2/*"
-       ],
-      "Principal": "*"
-    }
-  ]
-}
-```
-
-![custom policy](/images/5-Workshop/5.5-Policy/policy2.png)
-
-Cấu hình policy thành công.
-
-![success](/images/5-Workshop/5.5-Policy/success.png)
-
-5. Từ session của bạn trên Test-Gateway-Endpoint instance, kiểm tra truy cập đến S3 bucket bạn tạo ở bước đầu
+## Kiến trúc
 
 ```
-aws s3 ls s3://<yourbucketname>
+Amazon SQS
+      │
+      ▼
+Lambda Worker
+      │
+      ▼
+Amazon Athena
+      │
+      ▼
+Amazon Bedrock
+      │
+      ▼
+Amazon RDS PostgreSQL
 ```
 
-Câu lệnh trả về lỗi bởi vì truy cập vào S3 bucket không có quyền trong VPC endpoint policy.
+---
 
-![error](/images/5-Workshop/5.5-Policy/error.png)
+## Nội dung
 
-6. Trở lại home directory của bạn trên EC2 instance ```cd~```
+Trong chương này chúng ta sẽ thực hiện:
 
-+ Tạo file ```fallocate -l 1G test-bucket2.xyz ```
-+ Sao chép file lên bucket thứ  2 ```aws s3 cp test-bucket2.xyz s3://<your-2nd-bucket-name>```
+- 5.5.1 Create AWS Glue Data Catalog
+- 5.5.2 Query Data with Amazon Athena
+- 5.5.3 Create AI Worker Lambda
+- 5.5.4 Integrate Amazon Bedrock
+- 5.5.5 Process Messages from Amazon SQS
+- 5.5.6 Store AI Analysis Results
+- 5.5.7 Test the AI Pipeline
 
-![success](/images/5-Workshop/5.5-Policy/test2.png)
+---
 
-Thao tác này được cho phép bởi VPC endpoint policy.
+## Kết quả
 
-![success](/images/5-Workshop/5.5-Policy/test2-success.png)
-
-Sau đó chúng ta kiểm tra truy cập vào S3 bucket đầu tiên
-
- ```aws s3 cp test-bucket2.xyz s3://<your-1st-bucket-name>```
-
- ![fail](/images/5-Workshop/5.5-Policy/test2-fail.png)
-
- Câu lệnh xảy ra lỗi bởi vì bucket không có quyền truy cập bởi VPC endpoint policy.
-
-Trong phần này, bạn đã tạo chính sách VPC Endpoint cho Amazon S3 và sử dụng AWS CLI để kiểm tra chính sách. Các hoạt động AWS CLI liên quan đến bucket S3 ban đầu của bạn thất bại vì bạn áp dụng một chính sách chỉ cho phép truy cập đến bucket thứ hai mà bạn đã tạo. Các hoạt động AWS CLI nhắm vào bucket thứ hai của bạn thành công vì chính sách cho phép chúng. Những chính sách này có thể hữu ích trong các tình huống khi bạn cần kiểm soát quyền truy cập vào tài nguyên thông qua VPC Endpoint.
+Sau khi hoàn thành chương này, hệ thống có thể tự động nhận yêu cầu AI, truy vấn dữ liệu, sử dụng Amazon Bedrock để phân tích và lưu kết quả trở lại cơ sở dữ liệu mà không cần người dùng can thiệp.
