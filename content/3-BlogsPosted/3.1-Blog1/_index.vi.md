@@ -7,7 +7,7 @@ pre: " <b> 3.1. </b> "
 ---
 # AWS Lambda – Chạy code mà không cần quản lý máy chủ
 
-Xin chào mọi người! 👋
+Xin chào mọi người!
 
 Trong quá trình tìm hiểu về **Amazon Web Services (AWS)**, mình có cơ hội tìm hiểu về **AWS Lambda** – một trong những dịch vụ Serverless phổ biến nhất hiện nay.
 

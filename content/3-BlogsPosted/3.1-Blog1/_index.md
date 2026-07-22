@@ -7,7 +7,7 @@ pre: " <b> 3.1. </b> "
 ---
 # AWS Lambda – Running Code Without Managing Servers
 
-Hello everyone! 👋
+Hello everyone!
 
 While learning about **Amazon Web Services (AWS)**, I had the opportunity to explore **AWS Lambda**, one of the most popular Serverless services available today.
 
