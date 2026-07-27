@@ -136,6 +136,6 @@ After completing this section, you will have:
 - Everything ready for infrastructure deployment.
 <center>
 
-![Frontend & Authentication](/images/5-Workshop/5.2-Workshop-overview/5.2.png)
+![Frontend & Authentication](/images/5-Workshop/5.2-Prerequisite/5.2.png)
 
 <center>
