@@ -1,5 +1,5 @@
 ---
-title: "5.6.1 Tổ chức Amazon S3 Data Lake"
+title: "5.6.2 Tổ chức Amazon S3 Data Lake"
 date: 2024-01-01
 weight: 1
 chapter: false

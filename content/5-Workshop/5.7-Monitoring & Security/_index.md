@@ -3,7 +3,6 @@ title: "5.7 Monitoring & Security"
 date: 2024-01-01
 weight: 7
 chapter: true
-pre: "<b>5.7. </b>"
 ---
 
 ## Overview
