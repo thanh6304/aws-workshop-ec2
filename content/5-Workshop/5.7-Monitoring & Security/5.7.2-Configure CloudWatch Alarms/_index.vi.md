@@ -1,18 +1,17 @@
 ---
-title: "5.7.2 Configure CloudWatch Alarms"
+title: "5.7.2 Cấu hình CloudWatch Alarms"
 date: 2024-01-01
 weight: 2
 chapter: false
 ---
 
+## Tổng quan
 
-## Overview
+Amazon CloudWatch Alarms liên tục giám sát các chỉ số (Metrics) của các dịch vụ AWS và phát hiện các điều kiện hoạt động bất thường.
 
-Amazon CloudWatch Alarms continuously monitor AWS service metrics and detect abnormal operating conditions.
+Khi một chỉ số vượt quá ngưỡng (Threshold) đã được thiết lập, Alarm sẽ chuyển sang trạng thái **ALARM**. Ở phần tiếp theo, bạn sẽ cấu hình Amazon SNS để tự động gửi thông báo cho quản trị viên khi Alarm được kích hoạt.
 
-When a metric crosses a defined threshold, the alarm changes to the **ALARM** state. In the next section, you will configure Amazon SNS to automatically notify administrators when alarms are triggered.
-
-In this workshop, you will create alarms for:
+Trong bài thực hành này, bạn sẽ tạo CloudWatch Alarm cho các dịch vụ sau:
 
 - AWS Lambda
 - Amazon API Gateway
@@ -22,10 +21,10 @@ In this workshop, you will create alarms for:
 
 ---
 
-## Architecture
+## Kiến trúc
 
 ```text
-AWS Services
+Các dịch vụ AWS
       │
       ├── Lambda
       ├── API Gateway
@@ -36,44 +35,44 @@ AWS Services
                ▼
       Amazon CloudWatch
                │
-       CloudWatch Alarms
+      CloudWatch Alarms
                │
-        Alarm State Change
+      Thay đổi trạng thái Alarm
                │
                ▼
-      Amazon SNS (Next Section)
+      Amazon SNS (Phần tiếp theo)
 ```
 
 ---
 
-## Objectives
+## Mục tiêu
 
-After completing this section, you will:
+Sau khi hoàn thành phần này, bạn sẽ có thể:
 
-- Create CloudWatch alarms.
-- Configure alarm thresholds.
-- Monitor alarm states.
-- Prepare for Amazon SNS integration.
+- Tạo CloudWatch Alarm.
+- Cấu hình ngưỡng cảnh báo (Threshold).
+- Theo dõi trạng thái của Alarm.
+- Chuẩn bị tích hợp Amazon SNS.
 
 ---
 
-# Step 1. Open CloudWatch Alarms
+# Bước 1. Mở CloudWatch Alarms
 
-Open the AWS Management Console.
+Truy cập **AWS Management Console**.
 
-Navigate to:
+Điều hướng đến:
 
 ```text
 Amazon CloudWatch
 ```
 
-Select:
+Chọn:
 
 ```text
 Alarms
 ```
 
-Choose:
+Sau đó nhấn:
 
 ```text
 Create alarm
@@ -81,9 +80,9 @@ Create alarm
 
 ---
 
-# Step 2. Create a Lambda Error Alarm
+# Bước 2. Tạo Alarm cho lỗi Lambda
 
-Metric:
+Chọn Metric:
 
 ```text
 AWS/Lambda
@@ -91,21 +90,21 @@ AWS/Lambda
 Errors
 ```
 
-Lambda function:
+Chọn Lambda Function:
 
 ```text
 backend-api
 ```
 
-Configuration:
+Cấu hình:
 
-| Property  | Value          |
-| --------- | -------------- |
-| Statistic | Sum            |
-| Period    | 5 Minutes      |
+| Thuộc tính | Giá trị |
+|------------|----------|
+| Statistic | Sum |
+| Period | 5 Minutes |
 | Threshold | Greater than 0 |
 
-Alarm name:
+Đặt tên Alarm:
 
 ```text
 BackendLambdaErrors
@@ -113,22 +112,22 @@ BackendLambdaErrors
 
 ---
 
-# Step 3. Create a Lambda Duration Alarm
+# Bước 3. Tạo Alarm cho thời gian thực thi Lambda
 
-Metric:
+Chọn Metric:
 
 ```text
 Duration
 ```
 
-Configuration:
+Cấu hình:
 
-| Property  | Value   |
-| --------- | ------- |
+| Thuộc tính | Giá trị |
+|------------|----------|
 | Statistic | Average |
 | Threshold | 5000 ms |
 
-Alarm name:
+Đặt tên Alarm:
 
 ```text
 BackendLambdaDuration
@@ -136,22 +135,22 @@ BackendLambdaDuration
 
 ---
 
-# Step 4. Create an API Gateway Alarm
+# Bước 4. Tạo Alarm cho API Gateway
 
-Metric:
+Chọn Metric:
 
 ```text
 5XXError
 ```
 
-Configuration:
+Cấu hình:
 
-| Property  | Value          |
-| --------- | -------------- |
-| Statistic | Sum            |
+| Thuộc tính | Giá trị |
+|------------|----------|
+| Statistic | Sum |
 | Threshold | Greater than 0 |
 
-Alarm name:
+Đặt tên Alarm:
 
 ```text
 ApiGateway5XXErrors
@@ -159,22 +158,22 @@ ApiGateway5XXErrors
 
 ---
 
-# Step 5. Create an Amazon RDS Alarm
+# Bước 5. Tạo Alarm cho Amazon RDS
 
-Metric:
+Chọn Metric:
 
 ```text
 CPUUtilization
 ```
 
-Configuration:
+Cấu hình:
 
-| Property  | Value   |
-| --------- | ------- |
+| Thuộc tính | Giá trị |
+|------------|----------|
 | Statistic | Average |
-| Threshold | 80%     |
+| Threshold | 80% |
 
-Alarm name:
+Đặt tên Alarm:
 
 ```text
 RDSHighCPU
@@ -182,22 +181,22 @@ RDSHighCPU
 
 ---
 
-# Step 6. Create an Amazon SQS Alarm
+# Bước 6. Tạo Alarm cho Amazon SQS
 
-Metric:
+Chọn Metric:
 
 ```text
 ApproximateNumberOfMessagesVisible
 ```
 
-Configuration:
+Cấu hình:
 
-| Property  | Value            |
-| --------- | ---------------- |
-| Statistic | Average          |
+| Thuộc tính | Giá trị |
+|------------|----------|
+| Statistic | Average |
 | Threshold | Greater than 100 |
 
-Alarm name:
+Đặt tên Alarm:
 
 ```text
 SQSQueueDepth
@@ -205,22 +204,22 @@ SQSQueueDepth
 
 ---
 
-# Step 7. Create an Amazon Athena Alarm
+# Bước 7. Tạo Alarm cho Amazon Athena
 
-Metric:
+Chọn Metric:
 
 ```text
 FailedQueries
 ```
 
-Configuration:
+Cấu hình:
 
-| Property  | Value          |
-| --------- | -------------- |
-| Statistic | Sum            |
+| Thuộc tính | Giá trị |
+|------------|----------|
+| Statistic | Sum |
 | Threshold | Greater than 0 |
 
-Alarm name:
+Đặt tên Alarm:
 
 ```text
 AthenaFailedQueries
@@ -228,26 +227,26 @@ AthenaFailedQueries
 
 ---
 
-# Step 8. Review Alarm Status
+# Bước 8. Kiểm tra trạng thái Alarm
 
-Navigate to:
+Điều hướng đến:
 
 ```text
 CloudWatch → Alarms
 ```
 
-Example:
+Ví dụ:
 
-| Alarm                 | State |
-| --------------------- | ----- |
-| BackendLambdaErrors   | OK    |
-| BackendLambdaDuration | OK    |
-| ApiGateway5XXErrors   | OK    |
-| RDSHighCPU            | OK    |
-| SQSQueueDepth         | OK    |
-| AthenaFailedQueries   | OK    |
+| Alarm | Trạng thái |
+|------------------------|------------|
+| BackendLambdaErrors | OK |
+| BackendLambdaDuration | OK |
+| ApiGateway5XXErrors | OK |
+| RDSHighCPU | OK |
+| SQSQueueDepth | OK |
+| AthenaFailedQueries | OK |
 
-When a threshold is exceeded, the state changes to:
+Khi một chỉ số vượt quá ngưỡng đã thiết lập, trạng thái sẽ chuyển thành:
 
 ```text
 ALARM
@@ -255,42 +254,42 @@ ALARM
 
 ---
 
-# Step 9. Review Alarm History
+# Bước 9. Xem lịch sử Alarm
 
-Open any alarm and review the **History** tab to see:
+Mở bất kỳ Alarm nào và chọn tab **History** để xem:
 
-- Alarm creation time.
-- State transitions.
-- Metric values when the alarm was triggered.
-
----
-
-## Best Practices
-
-- Use clear and consistent alarm names.
-- Set thresholds based on application behavior.
-- Review alarm history regularly.
-- Create alarms only for meaningful metrics.
-- Integrate alarms with Amazon SNS for automated notifications.
+- Thời gian tạo Alarm.
+- Lịch sử thay đổi trạng thái.
+- Giá trị Metric tại thời điểm Alarm được kích hoạt.
 
 ---
 
-## Verification
+## Các phương pháp khuyến nghị
 
-Verify that:
-
-- All alarms are created successfully.
-- Each alarm is in the **OK** state.
-- Alarm metrics and history are accessible.
-- The environment is ready for Amazon SNS integration.
+- Đặt tên Alarm rõ ràng và thống nhất.
+- Thiết lập ngưỡng phù hợp với đặc điểm hoạt động của ứng dụng.
+- Thường xuyên kiểm tra lịch sử Alarm.
+- Chỉ tạo Alarm cho những Metric thực sự quan trọng.
+- Tích hợp Alarm với Amazon SNS để tự động gửi thông báo.
 
 ---
 
-## Expected Outcome
+## Kiểm tra kết quả
 
-After completing this section, you have:
+Xác nhận rằng:
 
-- Configured CloudWatch Alarms for critical AWS services.
-- Defined operational thresholds.
-- Learned how to monitor alarm states and history.
-- Prepared the monitoring system for automated notifications using Amazon SNS.
+- Tất cả các Alarm đã được tạo thành công.
+- Mỗi Alarm đều ở trạng thái **OK**.
+- Có thể xem Metric và lịch sử của từng Alarm.
+- Môi trường đã sẵn sàng để tích hợp với Amazon SNS.
+
+---
+
+## Kết quả mong đợi
+
+Sau khi hoàn thành phần này, bạn đã:
+
+- Cấu hình CloudWatch Alarm cho các dịch vụ AWS quan trọng.
+- Thiết lập các ngưỡng giám sát hoạt động.
+- Biết cách theo dõi trạng thái và lịch sử của Alarm.
+- Chuẩn bị hệ thống giám sát để gửi thông báo tự động thông qua Amazon SNS.
