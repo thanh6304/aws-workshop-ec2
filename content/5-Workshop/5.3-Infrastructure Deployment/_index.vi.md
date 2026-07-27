@@ -49,9 +49,6 @@ Trong chương này chúng ta sẽ xây dựng các tài nguyên sau:
 - Amazon SQS
 - IAM Role
 
-> **Hình 5.3 - Infrastructure Architecture**
-
-*(Chèn sơ đồ Infrastructure tại đây)*
 
 ---
 
