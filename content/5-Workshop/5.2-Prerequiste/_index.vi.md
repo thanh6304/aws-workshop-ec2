@@ -158,4 +158,4 @@ Sau khi hoàn thành bước chuẩn bị, bạn sẽ có:
 - Source code trên GitHub.
 - Môi trường phát triển hoàn chỉnh.
 - Sẵn sàng triển khai hạ tầng AWS ở các bước tiếp theo.
-  ![Frontend & Authentication](/images/5-Workshop/5.2-Workshop-overview/5.2.png)
+  ![Frontend & Authentication](/images/5-Workshop/5.2-Prerequisite/5.2.png)
