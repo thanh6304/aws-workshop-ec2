@@ -103,8 +103,6 @@ Create bucket
 | Object Ownership    | ACLs disabled           |
 | Block Public Access | Enable                  |
 
-> Chèn hình: Create Bucket
-
 ---
 
 ## Bước 4. Bật Versioning
@@ -144,8 +142,6 @@ ai-results/
 
 logs/
 ```
-
-> Chèn hình: Folder Structure
 
 ---
 

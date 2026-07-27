@@ -100,7 +100,6 @@ Nhấn:
 Next
 ```
 
-> Chèn hình: Create IAM Role
 
 ---
 
@@ -136,7 +135,6 @@ Nhấn:
 Create Role
 ```
 
-> Chèn hình: IAM Role Summary
 
 ---
 

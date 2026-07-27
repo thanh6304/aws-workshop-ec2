@@ -149,8 +149,6 @@ Theo mình, đây là một dịch vụ rất đáng để tìm hiểu đối v�
 
 ## Hình ảnh minh họa
 
-*(Chèn hình ảnh kiến trúc AWS Lambda hoặc sơ đồ Serverless tại đây.)*
-
 ---
 
 ## Tài liệu tham khảo

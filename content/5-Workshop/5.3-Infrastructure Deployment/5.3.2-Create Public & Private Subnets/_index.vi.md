@@ -139,7 +139,6 @@ Danh sách Subnets sẽ hiển thị:
 | Private-Subnet-A | 10.0.11.0/24 | ap-southeast-1a |
 | Private-Subnet-B | 10.0.12.0/24 | ap-southeast-1b |
 
-> Chèn hình: Subnet List
 
 ---
 

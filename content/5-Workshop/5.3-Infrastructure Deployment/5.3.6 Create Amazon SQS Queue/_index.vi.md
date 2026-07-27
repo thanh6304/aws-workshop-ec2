@@ -136,7 +136,6 @@ Standard Queue phù hợp với các tác vụ AI vì có khả năng mở rộn
 | Delivery Delay       | 0                   |
 | Maximum Message Size | 256 KB              |
 
-> Chèn hình: Queue Configuration
 
 ---
 
@@ -180,7 +179,6 @@ Danh sách Queue sẽ hiển thị:
 | ai-processing-queue |
 | ai-processing-dlq   |
 
-> Chèn hình: Queue List
 
 ---
 
