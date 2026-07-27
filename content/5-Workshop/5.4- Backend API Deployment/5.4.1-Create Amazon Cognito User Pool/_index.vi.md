@@ -79,7 +79,7 @@ Chọn:
 User Pools
 ```
 
-![Amazon Cognito ](/images/5-Workshop/5.4-S3-onprem/5.3.4.png)
+![Amazon Cognito ](/images/5-Workshop/5.4-S3-onprem/5.4.1.png)
 
 ---
 
@@ -103,7 +103,6 @@ Email
 
 Cho phép người dùng sử dụng địa chỉ email để đăng nhập.
 
-> Chèn hình: Sign-in Options
 
 ---
 
@@ -114,8 +113,6 @@ Giữ cấu hình mặc định:
 - Password Policy: Default
 - MFA: Optional hoặc Disabled (Workshop)
 - Self Registration: Enabled
-
-> Chèn hình: Security Configuration
 
 ---
 

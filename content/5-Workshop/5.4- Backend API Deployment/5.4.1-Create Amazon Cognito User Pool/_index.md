@@ -59,7 +59,7 @@ User Pools
 ```
 
 ---
-![Amazon Cognito ](/images/5-Workshop/5.4-S3-onprem/5.3.4.png)
+![Amazon Cognito ](/images/5-Workshop/5.4-S3-onprem/5.4.1.png)
 
 ## Step 2. Create a User Pool
 
